@@ -1,0 +1,9 @@
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\bin\Debug\quickSort.exe.config
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\obj\Debug\quickSort.exe
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\obj\Debug\quickSort.pdb
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\bin\Debug\quickSort.exe
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\bin\Debug\quickSort.pdb
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\obj\Debug\metodosOrdenamiento.csprojResolveAssemblyReference.cache
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\obj\Debug\quickSort.frmPrincipal.resources
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\obj\Debug\quickSort.Properties.Resources.resources
+C:\Users\adan\Documents\repositoriosVisual\quickSort\quickSort\obj\Debug\metodosOrdenamiento.csproj.GenerateResource.Cache

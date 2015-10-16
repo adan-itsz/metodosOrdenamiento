@@ -44,17 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="quick.cs">
+    <Compile Include="metodosOrdenamiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="quick.Designer.cs">
-      <DependentUpon>quick.cs</DependentUpon>
+    <Compile Include="metodosOrdenamiento.Designer.cs">
+      <DependentUpon>metodosOrdenamiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quickSort.cs" />
-    <EmbeddedResource Include="quick.resx">
-      <DependentUpon>quick.cs</DependentUpon>
+    <Compile Include="shellSort.cs" />
+    <EmbeddedResource Include="metodosOrdenamiento.resx">
+      <DependentUpon>metodosOrdenamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

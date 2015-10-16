@@ -35,6 +35,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnQuickSort = new System.Windows.Forms.Button();
+            this.btnShellSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,18 +99,31 @@
             // btnQuickSort
             // 
             this.btnQuickSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuickSort.Location = new System.Drawing.Point(32, 294);
+            this.btnQuickSort.Location = new System.Drawing.Point(32, 335);
             this.btnQuickSort.Name = "btnQuickSort";
             this.btnQuickSort.Size = new System.Drawing.Size(151, 29);
             this.btnQuickSort.TabIndex = 15;
             this.btnQuickSort.Text = "QuickSort";
             this.btnQuickSort.UseVisualStyleBackColor = true;
+            this.btnQuickSort.Click += new System.EventHandler(this.btnQuickSort_Click);
+            // 
+            // btnShellSort
+            // 
+            this.btnShellSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShellSort.Location = new System.Drawing.Point(32, 289);
+            this.btnShellSort.Name = "btnShellSort";
+            this.btnShellSort.Size = new System.Drawing.Size(151, 29);
+            this.btnShellSort.TabIndex = 16;
+            this.btnShellSort.Text = "ShellSort";
+            this.btnShellSort.UseVisualStyleBackColor = true;
+            this.btnShellSort.Click += new System.EventHandler(this.btnShellSort_Click);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 466);
+            this.Controls.Add(this.btnShellSort);
             this.Controls.Add(this.btnQuickSort);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -135,6 +149,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnQuickSort;
+        private System.Windows.Forms.Button btnShellSort;
 
     }
 }

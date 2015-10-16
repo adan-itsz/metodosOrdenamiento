@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickSort", "quickSort\quickSort.csproj", "{1498DAE9-8F49-468B-9880-D84846DBF3A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metodosOrdenamiento", "quickSort\metodosOrdenamiento.csproj", "{1498DAE9-8F49-468B-9880-D84846DBF3A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
