@@ -10,11 +10,14 @@ namespace quickSort
     {
         
         int[] arreglo;
+        int[] contadores;
         int izquierda ;
         int derecha;
         int pivote;
         int aux;
         bool band;
+        int contadorComparaciones;
+        int contadorIntercambios;
         public quickSort(int[] array)
         {
             arreglo = array;
@@ -41,29 +44,40 @@ namespace quickSort
                     arreglo[pivote] = arreglo[derecha];
                     arreglo[derecha] = aux;
                     pivote = derecha;
+                    contadorIntercambios++;
                     while (arreglo[pivote] >= arreglo[izquierda] && pivote != izquierda)
                     {
                         izquierda++;
                     }
                     if (pivote != izquierda)
                     {
-                        band = true; ;
+                        band = true; 
                         aux= arreglo[pivote];
                         arreglo[pivote] = arreglo[izquierda];
                         arreglo[izquierda] = aux;
                         pivote = izquierda;
+                        contadorIntercambios++;
                     }
                 }
             }
             if (pivote - 1 > ini)// 0 es la posicion del inicio
             {
+                contadorComparaciones++;
                 metodoQuickSort(ini, pivote - 1);
             }
             if (fin > (pivote + 1))
             {
+                contadorComparaciones++;
                 metodoQuickSort(pivote + 1, fin);
             }
             return arreglo;
+        }
+        public int[] contadoresMetodo()
+        {
+            contadores= new int[2];
+            contadores[0]=contadorComparaciones;
+            contadores[1] = contadorIntercambios;
+            return contadores;
         }
     }
 }
