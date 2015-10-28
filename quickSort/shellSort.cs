@@ -9,11 +9,12 @@ namespace quickSort
     class shellSort
     {
         int[] arreglo;
+        int[] arregloContadores= new int[2];
         int contadorComparaciones;
         int contadorIntercambios;
         public int[] metodoShellSort(int[] array)
         {
-            arreglo = array;
+            this.arreglo = array;
             bool ban = false;
             int i;
             int aux;
@@ -28,6 +29,7 @@ namespace quickSort
                     i = 1;
                     while (i <= (arreglo.Length - acumulador))
                     {
+                        contadorComparaciones++;
                         if (arreglo[i - 1] > arreglo[(i - 1) + acumulador])
                         {
                             aux = arreglo[i - 1 + acumulador];
@@ -36,7 +38,7 @@ namespace quickSort
                             ban = true;
                             contadorIntercambios++;
                         }
-                        contadorComparaciones++;
+                        
                         i++;
                     }
 
@@ -47,8 +49,7 @@ namespace quickSort
 
         }
         public int[] contadores()
-        {
-            int[] arregloContadores = new int[2];
+        {  
             arregloContadores[0] = contadorComparaciones;
             arregloContadores[1] = contadorIntercambios;
             return arregloContadores;

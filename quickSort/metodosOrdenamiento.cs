@@ -17,12 +17,17 @@ namespace quickSort
             InitializeComponent();
         }
         int[] array;
-        int[] arrayAuxiliar;
+        //int[] arrayAuxiliar;
+        // arreglos para cada metodo
+            int[] arrayShell;
+            int[] arrayQuick;
+            int[] arrayBubble;
+            int[] arrayHeap;
+            int[] arrayShaker;
         int longitudArreglo;
         int num;
-        int[] arreglo2;
+        int[] arreglo2;// se usa para recibir el arreglo de cada uno de los metodos
         int[] arregloComparaciones;
-        bool ban = true;
         int columna = 0;
         Random rand = new Random();
         // colocar aqui instancias de clase
@@ -41,7 +46,11 @@ namespace quickSort
             dataGridView1.Columns.Add("", "arreglo original");
             longitudArreglo = Convert.ToInt32(txtBoxCantidadElementos.Text);
             array = new int[longitudArreglo];
-            arrayAuxiliar = array;
+            arrayShell = new int[longitudArreglo];
+            arrayQuick= new int[longitudArreglo];
+            arrayBubble = new int[longitudArreglo];
+            arrayHeap= new int[longitudArreglo];
+            arrayShaker= new int[longitudArreglo];
             for (int i = 0; i < longitudArreglo - 1; i++)
                 {
                     dataGridView1.Rows.Add();
@@ -63,23 +72,28 @@ namespace quickSort
                  num = rand.Next(0, 200);
                  dataGridView1[0, j].Value = num;
                  array[j] = num;
+                 arrayShell[j] = num;
+                 arrayQuick[j] = num;
+                 arrayBubble[j] = num;
+                 arrayHeap[j] = num;
+                 arrayShaker[j] = num;
                  j++;
              }
              MessageBox.Show("arreglo lleno");
-            
+            // arrayAuxiliar = array;
         }
 
         private void btnShellSort_Click(object sender, EventArgs e)
         {
                 dataGridView1.Columns.Add("", "ShellSort");
                 columna++;
-             arreglo2 = new int[longitudArreglo];
-            arreglo2 = shell.metodoShellSort(arrayAuxiliar);
+               // arrayAuxiliar = array;
+            arreglo2 = shell.metodoShellSort(arrayShell);
             for (int i = 0; i < arreglo2.Length; i++)
             {
                 dataGridView1[columna, i].Value = arreglo2[i];
             }
-            int[] arregloComparaciones = shell.contadores();
+             arregloComparaciones = shell.contadores();
             txtShellComparaciones.Text = Convert.ToString (arregloComparaciones[0]);
             txtShellIntercambios.Text = Convert.ToString(arregloComparaciones[1]);
 
@@ -87,20 +101,21 @@ namespace quickSort
 
         private void btnQuickSort_Click(object sender, EventArgs e)
         {
-            quickSort quick = new quickSort(arrayAuxiliar);
+            quickSort quick = new quickSort(arrayQuick);
             
                 dataGridView1.Columns.Add("", "QuickSort");
                 columna++;
-                arreglo2 = new int[longitudArreglo];
-            arreglo2 = quick.metodoQuickSort(0,array.Length -1);
+            
+
+            arreglo2 = quick.metodoQuickSort(0,arrayQuick.Length -1);
             for (int i = 0; i < arreglo2.Length; i++)
             {
                 dataGridView1[columna,i].Value = arreglo2[i];
             }
-             int[]arregloComparaciones2 = new int[2];
-              arregloComparaciones2= quick.contadoresMetodo();
-            txtQuickComparaciones.Text = Convert.ToString(arregloComparaciones2[0]);
-            txtQuickIntercambios.Text = Convert.ToString(arregloComparaciones2[1]);
+            
+              arregloComparaciones= quick.contadoresMetodo();
+            txtQuickComparaciones.Text = Convert.ToString(arregloComparaciones[0]);
+            txtQuickIntercambios.Text = Convert.ToString(arregloComparaciones[1]);
         }
 
         private void btnBubble_Click(object sender, EventArgs e)
@@ -108,23 +123,27 @@ namespace quickSort
             
                 dataGridView1.Columns.Add("", "BubbleSort");
                 columna++;
-                arreglo2 = new int[longitudArreglo];
-            arreglo2 = bubble.Burbuja(arrayAuxiliar);
+            arreglo2 = bubble.Burbuja(arrayBubble);
             for (int i = 0; i < arreglo2.Length; i++)
             {
                 dataGridView1[columna, i].Value = arreglo2[i];
            }
-            int[]arregloComparaciones3 = new int[2];
-            arregloComparaciones3 = bubble.contadorCambios();
-            txtBubbleComparaciones.Text = Convert.ToString(arregloComparaciones3[1]);
-            txtBubbleIntercambios.Text = Convert.ToString(arregloComparaciones3[0]);
+            
+            arregloComparaciones = bubble.contadorCambios();
+            txtBubbleComparaciones.Text = Convert.ToString(arregloComparaciones[1]);
+            txtBubbleIntercambios.Text = Convert.ToString(arregloComparaciones[0]);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             array = new int[0];
             columna = 0;
-            arrayAuxiliar = new int[0];
+           // arrayAuxiliar = new int[0];
+            arrayShell = new int[0];
+            arrayQuick = new int[0];
+            arrayBubble = new int[0];
+            arrayHeap = new int[0];
+            arrayShaker = new int[0];
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
             txtBoxCantidadElementos.Clear();
@@ -143,26 +162,25 @@ namespace quickSort
 
         private void btnHeap_Click(object sender, EventArgs e)
         {
-            ClaseMetodoHeapSort heap = new ClaseMetodoHeapSort();
+            ClaseMetodoHeapSort heap = new ClaseMetodoHeapSort(arrayHeap);
             dataGridView1.Columns.Add("", "HeapSort");
             columna++;
-            heap.ordenacionMonticulos(arrayAuxiliar);
-            arreglo2 = new int[longitudArreglo];
-            arreglo2 = arrayAuxiliar;
+            heap.ordenacionMonticulos();
+            arreglo2 = heap.arrayAuxiliar;
             for (int i = 0; i < arreglo2.Length; i++)
             {
                 dataGridView1[columna, i].Value = arreglo2[i];
             }
-            int[]arregloComparaciones4 = new int[2];
-            arregloComparaciones4 = heap.contadorCambios();
-            txtHeapComparaciones.Text = Convert.ToString(arregloComparaciones4[1]);
-            txtHeapIntercambios.Text = Convert.ToString(arregloComparaciones4[0]);
+            
+            arregloComparaciones = heap.contadorCambios();
+            txtHeapComparaciones.Text = Convert.ToString(arregloComparaciones[1]);
+            txtHeapIntercambios.Text = Convert.ToString(arregloComparaciones[0]);
         
         }
 
         private void btnShaker_Click(object sender, EventArgs e)
         {
-            shakerSort shake = new shakerSort(arrayAuxiliar);
+            shakerSort shake = new shakerSort(arrayShaker);
             dataGridView1.Columns.Add("", "ShakerSort");
             columna++;
             arreglo2= new int[longitudArreglo];
@@ -171,10 +189,11 @@ namespace quickSort
             {
                 dataGridView1[columna, i].Value = arreglo2[i];
             }
-            int[] arregloComparaciones5 = new int[2];
-            arregloComparaciones5 = shake.contadores();
-            txtShakerComparaciones.Text = Convert.ToString(arregloComparaciones5[1]);
-            txtShakerIntercambios.Text = Convert.ToString(arregloComparaciones5[0]);
+           
+            arregloComparaciones = shake.contadores();
+            txtShakerComparaciones.Text = Convert.ToString(arregloComparaciones[0]);
+            txtShakerIntercambios.Text = Convert.ToString(arregloComparaciones[1]);
+            arregloComparaciones = null;
         }
         }
     }

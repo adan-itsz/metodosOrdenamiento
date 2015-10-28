@@ -11,9 +11,14 @@ namespace quickSort
           int ContaInter;
         int ContaCompa ;
         int[] Contadores;
+        public int[] arrayAuxiliar;
 
+        public ClaseMetodoHeapSort (int[] arregloParametro)
+    {
+        arrayAuxiliar = arregloParametro;
+    }
 
-        public void ordenacionMonticulos(int[] arrayAuxiliar) 
+        public void ordenacionMonticulos() 
         {
         int N = arrayAuxiliar.Length;
         for(int nodo = N/2; nodo>=0; nodo--) hacerMonticulo(arrayAuxiliar, nodo, N-1);
@@ -31,9 +36,11 @@ namespace quickSort
         int izq = 2*nodo+1;
         int der = izq+1;
         int may;
+        
         if (izq > fin)
         {
-        ContaCompa++;
+            ContaCompa++;
+        
         return;
         }
         if(der>fin) may=izq;
@@ -46,6 +53,7 @@ namespace quickSort
             hacerMonticulo(Arreglo, may, fin);
             ContaInter++;
         }
+        
         }
 
         public int[] contadorCambios()

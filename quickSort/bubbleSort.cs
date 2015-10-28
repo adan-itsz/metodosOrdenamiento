@@ -21,7 +21,8 @@ namespace quickSort
 
         public int[] Burbuja(int[] arreglo1)
         {
-            arreglo = arreglo1;
+                arreglo=arreglo1;
+
             for (i = 0; i < arreglo.Length && bandera == true; i++)
             {
                 bandera = false;
@@ -42,7 +43,7 @@ namespace quickSort
                 }
             }
 
-            return arreglo;
+            return this.arreglo;
         }
 
 
